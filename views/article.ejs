@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/article.css">
+</head>
+<body>
+
+    <%- include('partials/navbar')  %> 
+    <div class="container">
+        <%- include('./partials/error') %>
+        <h3>Create new article </h3>
+        <form id="article-form" >
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                  
+                    <input name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload"></label>
+                </div>
+                <div class="avatar-preview">
+
+                    <img id="imagePreview" src='../images/social.jfif'>
+
+                            
+                </div>
+                </div>
+        <label for="title">Title: </label>
+       <input id="title" type="text" name="title" required>
+        <label for="text">Text: </label>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <input id="send" type="button" class="btn btn-primary comment" value="Create" onclick="CKupdate();ajaxSubmit()" >
+    </form>
+    <hr>
+
+   <% if (p===1) { %>
+    <% for( let index = 0; index < Article.length; index++ ) { %>
+        
+        <div class="w3-container w3-card w3-white w3-round w3-margin" style="margin-top: 1px!important;"><br>
+            <img alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:100px; height: 100px;" src=<% if (  Article[index].image==="") { %>
+                "../images/social.jfif"
+                
+                <% } else { %>   "../uploads/images/<%= Article[index].image %>"  <% } %>>
+            <span class="w3-right w3-opacity"><%= Article[index].createdAt.toString().slice(4,15) %></span>
+            <p class="id" style="display: none;"><%= Article[index]._id %></p>
+            <p class="img"  style="display: none;"><%= Article[index].image %></p>
+            <p class="data" style="display: none;"><%= Article[index].text%>   </p>
+            <h4><%= Article[index].owner.userName %></h4><br>
+            <h4><%= Article[index].title%></h4>
+            <hr class="w3-clear">
+            <p class="text"><%- list_data[index]%> ...  </p>
+            
+              <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half">
+              
+                </div>
+                <div class="w3-half">
+                
+              </div>
+              </div>
+            
+        <a href="/article/<%= Article[index]._id %> " type="button" class="w3-button w3-theme-d2 w3-margin-bottom comment">Read More</a> 
+        <button id="<%= Article[index]._id %>" type="button" class="w3-button w3-theme-d2 w3-margin-bottom comment Delete">Delete</button>
+        <a href="/article/edit/<%= Article[index]._id %>"  type="button" class="w3-button w3-theme-d2 w3-margin-bottom comment Edit ">Edit</a>
+   
+            </div>
+    
+     
+     <% } %>
+       
+    
+    
+   <% } %>
+  
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../javascripts/image.js"></script>
+    <script src="../javascripts/edit-logOut.js"></script>
+    <script src="../javascripts/article.js"></script>
+ 
+    <script>
+        CKEDITOR.replace( 'text' );
+</script>
+</body>
+</html>

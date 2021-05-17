@@ -1,0 +1,11 @@
+<% if (warning===1) { %>
+    <% for( let index = 0; index < alert.length; index++ ) { %>
+    <p class="error"><%= alert[index].msg %></p>
+    <% } %>
+   <% } %>
+   
+   <% if (msg) { %>
+       
+     <p class="error"><%= msg %></p>
+
+    <% } %>

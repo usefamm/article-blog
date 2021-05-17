@@ -1,0 +1,26 @@
+
+    <div class="w3-bar w3-theme-d2 w3-left-align w3-large" style="background-color:rgb(244,67,54)!important;">
+       
+     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" style="background-color:rgb(244,67,54)!important;" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+     <a id="logOut" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"style="background-color:rgb(244,67,54)!important;"><i class="fa fa-share-square w3-margin-right"></i>Log Out</a>
+     <a href="/user/dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Home"><i class="fa fa-home"></i></a>
+     <a href="/user/update" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+     <a href="/article" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Articles"><i class="fa fa-edit "></i></a>
+     <% if (User.role==="admin") { %>
+        <a href="/admin/users" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="All Users"><i class="fa fa-users"></i></a>
+     <% } %>
+   
+     <div class="w3-dropdown-hover w3-hide-small">
+   
+     
+     </div>
+    
+    </div>
+
+    <!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large comment">
+    <a href="/user/update" class="w3-bar-item w3-button w3-padding-large comment">Account Settings</a>
+    <a href="/user/dashboard" class="w3-bar-item w3-button w3-padding-large comment">Home</a>
+   
+   
+  </div>

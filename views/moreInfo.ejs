@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/moreInfo.css">
+ 
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+      
+<section class="page wrap">
+    <%- include("./partials/navbar") %> 
+  
+    <main id="main"> 
+      <div>
+    
+        <section id="header-section">
+          <h1 id="author"> <%= article.owner.userName %></h1>
+    <h2><%= article.title %></h2>
+        </section>
+        
+      </div>
+      
+    <figure id="img-div"</figure>
+      <img class="center" id="image" src="../uploads/images/<%=article.image %>">
+     <figcaption id=img-caption><%= article.createdAt.toString().slice(4,15)  %></figcaption>
+     
+            </figure>
+           
+ 
+    
+      <div>
+      
+        
+          
+     
+        <section id="tribute-info"> 
+       <%- data %>
+ 
+      </div>
+<% if (comment!="") { %>
+  <h2 style="color: orange;">Comments:  </h2>
+<% } %>
+     
+      <% for( let index = 0; index < comment.length; index++ ) { %>
+      </div>
+      <div class="comment initial">
+        <div class="comment-avatar-container">
+          <img class="comment-avatar" src=<% if (  comment[index].owner.image==="") { %>
+            "../images/avatar.png"
+            
+            <% } else { %>   "../uploads/images/<%= comment[index].owner.image %>"  <% } %>   />
+         </div>
+         
+          <p class="comment-text"><%= comment[index].text %> </p>
+          <p class="left comment-time-stamp"><%= comment[index].createdAt.toString().slice(4,24) %> </p>
+          <p class="left comment-username"><%= comment[index].owner.userName %> </p>
+          <% if (User.role==="admin") { %>
+            <a id="<%= comment[index]._id %>"  type="button" class="w3-button w3-theme-d2 w3-margin-bottom left comment-delete">Delete</a>
+          <% } %>
+      </div>
+        
+    
+      
+      <% } %>
+      
+       
+
+      
+      <script>
+        // Used to toggle the menu on smaller screens when clicking on the menu button
+      function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else { 
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+      </script>
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+      <script src="../javascripts/comment.js"></script>
+      <script src="../javascripts/edit-logOut.js"></script>
+     
+  
+    </body>
+</html>

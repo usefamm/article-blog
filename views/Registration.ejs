@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>SignUp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="../stylesheets/register.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"
+        integrity="sha512-yye/u0ehQsrVrfSd6biT17t39Rg9kNc+vENcCXZuMz2a+LWFGvXUnYuWUW6pbfYj1jcBb/C39UZw2ciQvwDDvg=="
+        crossorigin="anonymous" />
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+	<h1>Sign Up</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="/auth/register" method="post">
+                    <%- include('./partials/error')  %> 
+                    <input  class="text" type="text" name="firstName" placeholder="first Name" required>
+                    <input class="text" type="text" name="lastName" placeholder="Last Name" required>
+					<input class="text" type="text" name="userName" placeholder="Username" required>
+					<input class="text email" type="email" name="email" placeholder="Email" required>
+                    <input id="phone" class="text" type="text" maxlength="10" name="phone" placeholder="Phone Number"  required><br>
+                    <label for="gender">Male</label>
+                    <input class="checkbox" type="radio" name="gender" value="male">
+                    <label for="gender">Female</label>
+                    <input class="checkbox" type="radio" name="gender" value="female">
+					<input class="text" type="password" name="passWord" placeholder="Password" required>
+					<input class="text w3lpass" type="password" name="passWord2" placeholder="Confirm Password" required>
+                    <div class="container">
+                      
+                    
+                    </div>
+                   
+					<div class="wthree-text">
+					
+						<div class="clear"> </div>
+					</div>
+					<input id="submit" type="submit" value="SIGNUP">
+				</form>
+				
+			</div>
+		</div>
+	
+	
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+    integrity="sha512-BNZ1x39RMH+UYylOW419beaGO0wqdSkO7pi1rYDYco9OL3uvXaC/GTqA5O4CVK2j4K9ZkoDNSSHVkEQKkgwdiw=="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"
+        integrity="sha512-DNeDhsl+FWnx5B1EQzsayHMyP6Xl/Mg+vcnFPXGNjUZrW28hQaa1+A4qL9M+AiOMmkAhKAWYHh1a+t6qxthzUw=="
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../javascripts/register.js"></script>
+<script src="../javascripts/image.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.left{
+    font-size: 1.3vw;
+}
+
+.comment{
+ background-color:rgb(244,67,54)!important;
+ font-size: 15px;
+ color: white;
+
+}
+.comment:hover{
+    background-color:rgb(218, 192, 192)!important;
+    
+   
+      
+   
+   }
+   .title ,.author{
+       opacity: 0.5;
+       color:orangered;
+       font-size: 15px;
+
+   }
+@media only screen and (min-width: 600px) {
+#middle{
+    margin-left: 10%;
+}
+    
+  } 

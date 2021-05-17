@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/Edit_Profile.css">
+</head>
+
+<body>
+    <%- include('partials/navbar')  %> 
+     
+    <div class="container">
+   
+      
+        <h1>Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <form action="/user/photo/change" method="POST" enctype="multipart/form-data">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type="text" name="_id" value="<%= User._id %>" style="display: none;">
+                            <input name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview">
+
+                            <img id="imagePreview" class="<%= User.image %>" src=<% if ( User.image==="" ) { %>
+                            "../images/avatar.png"
+
+                            <% } else { %> "../uploads/images/<%= User.image %>"
+                                    <% } %> >
+
+
+                                        <input id="editPhoto" type="submit" class="btn btn-primary comment"
+                                            value="Save New Photo " />
+                                        <button id="deleteImage" type="button" class="btn btn-danger">Delete
+                                            Photo</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-9 personal-info">
+                <%- include('./partials/error') %>
+
+            </div>
+            <h3>Password</h3>
+            <div class="form-group">
+
+                <label class="col-lg-3 control-label">Old Password:</label>
+                <div class="col-lg-8">
+                    <input id="oldPassWord" name="oldPassWord" class="form-control" type="password"
+                     required>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">New Password:</label>
+                <div class="col-md-8">
+                    <input id="newPassWord" name="passWord" class="form-control" type="password"
+                      required>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-8">
+
+
+                    <input id="updatePassWord" type="button" class="btn btn-primary comment" value="Update Password">
+                    <span></span>
+
+                </div>
+            </div>
+
+            <!-- edit form column -->
+
+            <h3>Personal info</h3>
+
+
+            <form class="form-horizontal">
+                <div class="form-group" style="display: none!important;">
+                    <label class="col-lg-3 control-label">Id:</label>
+                    <div class="col-lg-8">
+                        <input id="_id" name="id" class="form-control" type="text" value=<%=User._id %> required >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Username:</label>
+                    <div class="col-lg-8">
+                        <input id="userName" name="userName" class="form-control" type="text"
+                            value="<%=User.userName %>" required>
+                    </div>
+                </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+                <input id="email" name="email" class="form-control" type="text" value="<%=User.email %>" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 control-label">Phone Number:</label>
+            <div class="col-lg-8">
+                <input id="phone" name="phone" class="form-control" type="text" value="<%=User.phone %>" maxlength="13"
+                    required>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+
+            <div class="col-md-8">
+                <input id="submit" type="button" class="btn btn-primary comment" value="Update New Personal Info">
+
+
+
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    <hr>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script src="../javascripts/edit-logOut.js"></script>
+    <script src="../javascripts/image.js"></script>
+    <script>
+        // Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+    
+</body>
+
+</html>
