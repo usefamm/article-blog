@@ -14,6 +14,6 @@ router.use("/user", tools.checkLogin, user);
 router.use("/comment", tools.checkLogin, comment);
 
 router.get("/", (req, res) => {
-  res.render("home");
+  res.render("Home");
 });
 module.exports = router;
